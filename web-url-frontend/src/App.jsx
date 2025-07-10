@@ -6,7 +6,7 @@ const App = () => {
     const [result, setResult] = useState(null);
 
     const checkUrl = async () => {
-        const response = await fetch('http://localhost:5000/api/check-url', {
+        const response = await fetch('https://web-url-phishing-1.onrender.com/api/check-url', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url })
@@ -16,7 +16,7 @@ const App = () => {
     };
 
     const downloadCSV = () => {
-        window.open('http://localhost:5000/api/export-logs', '_blank');
+        window.open('https://web-url-phishing-1.onrender.com/api/export-logs', '_blank');
     };
 
     return (
