@@ -5,18 +5,19 @@ const App = () => {
     const [url, setUrl] = useState('');
     const [result, setResult] = useState(null);
 
-    const checkUrl = async () => {
-        const response = await fetch('https://web-url-phishing-1.onrender.com/api/check-url', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url })
-        });
-        const data = await response.json();
-        setResult(data);
-    };
+   const checkUrl = async () => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/check-url`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+    });
+    const data = await response.json();
+    setResult(data);
+};
+
 
     const downloadCSV = () => {
-        window.open('https://web-url-phishing-1.onrender.com/api/export-logs', '_blank');
+        window.open(`${process.env.REACT_APP_API_URL}/api/export-logs`, '_blank');
     };
 
     return (
