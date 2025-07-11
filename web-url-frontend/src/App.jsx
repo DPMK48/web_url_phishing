@@ -1,12 +1,16 @@
 
 import React, { useState } from 'react';
+import { api_url } from './env';
 
 const App = () => {
     const [url, setUrl] = useState('');
     const [result, setResult] = useState(null);
 
    const checkUrl = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/check-url`, {
+
+
+
+    const response = await fetch(`${api_url}/api/check-url`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url })
@@ -18,6 +22,7 @@ const App = () => {
 
     const downloadCSV = () => {
         window.open(`${process.env.REACT_APP_API_URL}/api/export-logs`, '_blank');
+
     };
 
     return (
